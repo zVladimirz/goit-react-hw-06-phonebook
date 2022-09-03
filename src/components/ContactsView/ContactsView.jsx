@@ -1,7 +1,7 @@
 import { ContactsViewList, ContactsViewListItem } from './ContactsView.styled';
-import ContactsItems from '../ContactsItems';
+import ContactsItems from 'components/ContactsItems';
 
-import { contactDel } from '../../redux/contactsSlice';
+import { contactDel } from 'redux/contactsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const ContactsView = () => {

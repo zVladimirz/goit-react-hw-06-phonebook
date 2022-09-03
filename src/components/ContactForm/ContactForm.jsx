@@ -1,4 +1,4 @@
-import { contactAdd, filterСhange } from '../../redux/contactsSlice';
+import { contactAdd, filterСhange } from 'redux/contactsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { nanoid } from 'nanoid';

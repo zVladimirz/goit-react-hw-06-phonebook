@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 
 import { Wrapper } from './App.styled';
-import ContactsView from '../ContactsView';
+import ContactsView from 'components/ContactsView';
 
-import ContactsFilter from '../ContactsFilter';
-import ContactForm from '../ContactForm';
+import ContactsFilter from 'components/ContactsFilter';
+import ContactForm from 'components/ContactForm';
 
-import { contactInit } from '../../redux/contactsSlice';
+import { contactInit } from 'redux/contactsSlice';
 import { useDispatch } from 'react-redux';
 
 function App() {
