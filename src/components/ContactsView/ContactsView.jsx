@@ -1,19 +1,18 @@
-import { ContactsViewList, ContactsViewListItem } from "./ContactsView.styled";
-import ContactsItems from "../ContactsItems";
+import { ContactsViewList, ContactsViewListItem } from './ContactsView.styled';
+import ContactsItems from '../ContactsItems';
 
-import { contactDel } from "../../redux/contactsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { contactDel } from '../../redux/contactsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ContactsView = () => {
   const dispatch = useDispatch();
 
-  const filter = useSelector((state) => state.contacts.filter);
-  const contacts = useSelector((state) => state.contacts.items);
+  const filter = useSelector(state => state.contacts.filter);
+  const contacts = useSelector(state => state.contacts.items);
 
-  const onDeleteContact = (contactId) => {
+  const onDeleteContact = contactId => {
     dispatch(contactDel(contactId));
   };
-
 
   if (!contacts) {
     return;
@@ -21,7 +20,7 @@ const ContactsView = () => {
 
   const getvisibleContact = () => {
     const normalizeFilter = filter.toLowerCase();
-    return contacts.filter((contact) =>
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizeFilter)
     );
   };

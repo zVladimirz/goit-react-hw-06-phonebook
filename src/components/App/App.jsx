@@ -1,13 +1,13 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import { Wrapper } from "./App.styled";
-import ContactsView from "../ContactsView";
+import { Wrapper } from './App.styled';
+import ContactsView from '../ContactsView';
 
-import ContactsFilter from "../ContactsFilter";
-import ContactForm from "../ContactForm";
+import ContactsFilter from '../ContactsFilter';
+import ContactForm from '../ContactForm';
 
-import { contactInit } from "../../redux/contactsSlice";
-import { useDispatch } from "react-redux";
+import { contactInit } from '../../redux/contactsSlice';
+import { useDispatch } from 'react-redux';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function App() {
 
   if (firstRender.current) {
     firstRender.current = false;
-    const parserContacts = JSON.parse(localStorage.getItem("contacts"));
+    const parserContacts = JSON.parse(localStorage.getItem('contacts'));
     if (parserContacts) {
       dispatch(contactInit(parserContacts));
     }

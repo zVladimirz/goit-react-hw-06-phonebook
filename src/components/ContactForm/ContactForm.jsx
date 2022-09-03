@@ -1,23 +1,23 @@
-import { contactAdd, filterСhange } from "../../redux/contactsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { contactAdd, filterСhange } from '../../redux/contactsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
-import { Formik, ErrorMessage } from "formik";
-import * as yup from "yup";
+import { Formik, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 import {
   StyledButton,
   Input,
   ErrorText,
   DivCenter,
   FormBorder,
-} from "./ContactForm.styled";
+} from './ContactForm.styled';
 
 const FormError = ({ name }) => {
   return (
     <ErrorMessage
       name={name}
-      render={(message) => <ErrorText>{message}</ErrorText>}
+      render={message => <ErrorText>{message}</ErrorText>}
     />
   );
 };
@@ -35,19 +35,19 @@ const schema = yup.object().shape({
     .required()
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
-      "Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+      'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
     ),
 });
 
 const initialValues = {
-  name: "",
-  number: "",
+  name: '',
+  number: '',
 };
 
 const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector((state) => state.contacts.items);
+  const contacts = useSelector(state => state.contacts.items);
 
   const onSubmit = ({ name, number }, { resetForm }) => {
     const contact = {
@@ -55,13 +55,13 @@ const ContactForm = () => {
       name: name,
       number: number,
     };
-    const indexName = contacts.findIndex((contact) => contact.name === name);
+    const indexName = contacts.findIndex(contact => contact.name === name);
     if (indexName === -1) {
       dispatch(contactAdd(contact));
 
-      dispatch(filterСhange(""));
+      dispatch(filterСhange(''));
     } else {
-      alert(name + " is already in contacts");
+      alert(name + ' is already in contacts');
     }
 
     resetForm();
